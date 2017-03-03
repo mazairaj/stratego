@@ -160,7 +160,7 @@ app.get('/',function(req,res) {
   res.send('hello world')
 })
 
-app.post('/test', functino(req, res){
+app.post('/test', function(req, res){
   console.log('body', req.body)
   var newboard = req.body.board;
   var newboard2 = transpose(newboard, 8);
