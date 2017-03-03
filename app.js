@@ -159,6 +159,18 @@ var checkValidMove=function(pos1,pos2) {
 app.get('/',function(req,res) {
   res.send('hello world')
 })
+
+app.post('/test', functino(req, res){
+  console.log('body', req.body)
+  var newboard = req.body.board;
+  var newboard2 = transpose(newboard, 8);
+  var newboard3 = transpose(newboard2, 8)
+
+  res.json({
+    firstTrans: newboard2,
+    secondTrans: newboard3
+  })
+})
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
