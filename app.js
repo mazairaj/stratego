@@ -163,15 +163,11 @@ app.get('/',function(req,res) {
 app.post('/test', function(req, res){
   console.log('body', req.body)
   var newboard = req.body.board;
-  var newboard2 = req.body.board;
-
-  var newboardTrans = transpose(newboard, 8);
-  var newBoardFinal = transpose(newboard2, 8);
-  newBoardFinal = transpose(newBoardFinal, 8)
+  var newboard2 = transpose(newboard, 8);
+  var sendBack = transpose(newboard2, 8);
 
   res.json({
-    first: newboardTrans,
-    final: newBoardFinal
+    final: sendBack
   })
 })
 app.post('/setupboard',function(req,res) {
