@@ -173,7 +173,9 @@ app.post('/joingame', function(req, res){
   // res.json({
   //   resp: 'joined game'
   // })
-  res.send('hello world')
+  res.json({
+      resp: "hello"
+  })
   // var myTeam;
   // if (numPlayers === 0){
   //   numPlayers++;
