@@ -193,7 +193,7 @@ app.post('/makemove', function(req, res) {
   res.json({
     board: transpose(board),
     currentPlayer: nextPlayer(),
-    move: [];
+    move: []
   });
 })
 
