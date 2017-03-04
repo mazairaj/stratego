@@ -48,15 +48,16 @@ var board= [ ["", "","","","","","",""],
 ]
 var currentPlayer = 'red';
 function transpose(arr,arrLen) {
+  var newArray = [...arr];
   for (var i = 0; i < arrLen; i++) {
     for (var j = 0; j <i; j++) {
       //swap element[i,j] and element[j,i]
-      var temp = arr[i][j];
-      arr[i][j] = arr[j][i];
-      arr[j][i] = temp;
+      var temp = newArray[i][j];
+      newArray[i][j] = newArray[j][i];
+      newArray[j][i] = temp;
     }
   }
-  return arr;
+  return newArray;
 }
 var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
