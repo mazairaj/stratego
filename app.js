@@ -171,7 +171,7 @@ app.post('/test', function(req, res){
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
-  board = newBoard;
+  board = boardTranspose;
   res.json('true');
 })
 
@@ -179,12 +179,12 @@ app.post('/setupboard',function(req,res) {
 app.post('/makemove', function(req, res) {
   console.log('BOARD BEFORE MOVE IS MADE:',board)
   var moves = req.body.move;
-  var copyBoard = board;
-  var copyBoard = transpose(copyBoard, 8);
+  var copyBoard = [...board];
   var pos2 = moves[1];
   var pos1 = moves[0];
   var direction = checkValidMove(pos1,pos2);
   if(direction==='illegal move') {
+    copyBoard = transpose(copyBoard, 8)
     res.json({
       board: copyBoard,
       currentPlayer: currentPlayer,
