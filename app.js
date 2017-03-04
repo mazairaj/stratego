@@ -188,16 +188,16 @@ app.get('/joingame', function(req, res){
     })
     console.log('2 ',myTeam)
   }
-  if (numPlayers >= 2){
-    res.json({
-      myTeam: 'Game Full'
-    })
-    }
-    console.log('3', myTeam)
+  // if (numPlayers >= 2){
+  //   res.json({
+  //     myTeam: 'Game Full'
+  //   })
+  //   }
+  //   console.log('3', myTeam)
 });
 
 app.get('/setupboard', function(req, res){
-  boardTranspose = (transpos(board, 8));
+  boardTranspose = (transpose(board, 8));
   res.json({
     board: 'boardTranspose',
     currentPlayer: 'currentPlayer'
