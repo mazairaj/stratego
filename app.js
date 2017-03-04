@@ -173,19 +173,19 @@ app.get('/joingame', function(req, res){
   // res.json({
   //   resp: 'joined game'
   // })
+  var myTeam;
   if (numPlayers === 0){
     numPlayers++;
-    res.json({
-      myTeam: "red";
-    })
+    myTeam = 'red'
   } else if(numPlayers === 1 ){
     numPlayers++;
-    res.json({
-      myTeam: "blue"
-    }) else {
+    myTeam = 'blue',
+  } else {
       res.send("Game Full")
     }
-  }
+  res.json({
+    myTeam: myTeam
+  })
 })
 app.get('/setubboard', function(req, res){
   boardTranspose = (transpos(board, 8));
