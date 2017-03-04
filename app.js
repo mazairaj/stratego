@@ -47,6 +47,7 @@ var board= [ ["", "","","","","","",""],
              ["", "","","","","","",""],
 ]
 var currentPlayer = 'red';
+var numPlayers = 0;
 function transpose(arr,arrLen) {
   var newArray = [...arr];
   for (var i = 0; i < arrLen; i++) {
@@ -168,6 +169,28 @@ app.post('/test', function(req, res){
     final: 'hey'
   })
 })
+app.get('/joingame', function(req, res){
+  if (numPlayers === 0){
+    numPlayers++;
+    res.json({
+      myTeam: "red";
+    })
+  } else if(numPlayers === 1 ){
+    numPlayers++;
+    res.json({
+      myTeam: "blue"
+    }) else {
+      res.send("Game Full")
+    }
+  }
+})
+app.get('/setubboard', function(req, res){
+  boardTranspose = (transpos(board, 8));
+  res.json({
+    board: boardTranspose,
+    currentPlayer: currentPlayer
+  })
+});
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
@@ -204,7 +227,7 @@ app.post('/makemove', function(req, res) {
   console.log('BOARD AFTER', newboard2);
   res.json({
     board: newboard2,
-    currentPlayer: 'red',
+    currentPlayer: nextPlayerVal,
     move: []
   });
 })
