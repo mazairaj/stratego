@@ -175,16 +175,19 @@ app.post('/joingame', function(req, res){
   if (numPlayers === 0){
     numPlayers++;
     myTeam = 'red'
+    console.log('1 ', myTeam)
   }
    if(numPlayers === 1 ){
     numPlayers++;
     myTeam = 'blue',
+    console.log('2 ',myTeam)
   }
-  if (numPlayers > 1)
+  if (numPlayers > 1){
     myTeam = 'Game Full'
     }
+    console.log('3', myTeam)
   res.json({
-    myTeam: myTeam
+    myTeam: "myTeam"
   })
 });
 
