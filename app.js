@@ -192,11 +192,11 @@ app.get('/joingame', function(req, res){
     console.log('3', myTeam)
 });
 
-app.get('/setubboard', function(req, res){
+app.get('/setupboard', function(req, res){
   boardTranspose = (transpos(board, 8));
   res.json({
-    board: boardTranspose,
-    currentPlayer: currentPlayer
+    board: 'boardTranspose',
+    currentPlayer: 'currentPlayer'
   })
 });
 app.post('/setupboard',function(req,res) {
