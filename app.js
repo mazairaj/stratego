@@ -173,8 +173,10 @@ app.post('/setupboard',function(req,res) {
   board = newBoard;
   res.json('true');
 })
+
+
 app.post('/makemove', function(req, res) {
-  console.log(req.body)
+  console.log('BOARD BEFORE MOVE IS MADE:',board)
   var moves = req.body.move;
   var pos2 = moves[1];
   var pos1 = moves[0];
@@ -188,14 +190,14 @@ app.post('/makemove', function(req, res) {
   };
 
   var newboard = makeMove(pos1,direction);
-  console.log(newboard)
-  var nextPlayerVal = 'blue' //nextPlayer()
-  // res.send(newboard);
-  res.json({
-    board: newboard,
-    currentPlayer: nextPlayerVal,
-    move: []
-  });
+  console.log('BOARD UPDATED',newboard)
+  // var nextPlayerVal = 'blue' //nextPlayer()
+  res.send(board);
+  // res.json({
+  //   board: newboard,
+  //   currentPlayer: nextPlayerVal,
+  //   move: []
+  // });
 })
 
 app.listen(process.env.PORT||3000)
