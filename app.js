@@ -186,10 +186,10 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
-  console.log('here');
-  res.json('true');
-  // var newboard = makeMove(pos1,direction);
-  // var nextPlayer = nextPlayer()
+
+  var newboard = makeMove(pos1,direction);
+  var nextPlayer = nextPlayer()
+  res.send(newboard);
   // res.json({
   //   board: newboard,
   //   currentPlayer: nextPlayer,
