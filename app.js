@@ -58,9 +58,9 @@ function transpose(arr,arrLen) {
   }
   return arr;
 }
-var nextPlayer = function(){
-  return (currentPlayer === 'red') ? 'blue' : 'red'
-}
+// var nextPlayer = function(){
+//   return (currentPlayer === 'red') ? 'blue' : 'red'
+// }
 var updatePos = function(position1, position2){
   console.log('update')
   initialPiece = board[position1.row][position1.col];
@@ -189,12 +189,12 @@ app.post('/makemove', function(req, res) {
 
   var newboard = makeMove(pos1,direction);
   console.log(newboard)
-  var nextPlayer = nextPlayer()
+  var nextPlayerVal = 'blue' //nextPlayer()
   console.log(nextPlayer);
   // res.send(newboard);
   res.json({
     board: newboard,
-    currentPlayer: nextPlayer,
+    currentPlayer: nextPlayerVal,
     move: []
   });
 })
