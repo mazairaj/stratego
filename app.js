@@ -170,7 +170,9 @@ app.post('/test', function(req, res){
   })
 })
 app.get('/joingame', function(req, res){
-  res.send('joined game')
+  res.json({
+    resp: 'joined game'
+  })
 //   if (numPlayers === 0){
 //     numPlayers++;
 //     res.json({
