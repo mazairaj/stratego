@@ -175,7 +175,7 @@ app.get('/joingame', function(req, res){
 
   console.log('num ', numPlayers)
   var myTeam = "";
-  if (numPlayers===0){
+  if (numPlayers === 0){
     numPlayers = 1;
     res.json({
       myTeam: 'red'
