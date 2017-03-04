@@ -170,22 +170,22 @@ app.post('/test', function(req, res){
   })
 })
 app.get('/joingame', function(req, res){
-  res.json({
-    resp: 'joined game'
-  })
-//   if (numPlayers === 0){
-//     numPlayers++;
-//     res.json({
-//       myTeam: "red";
-//     })
-//   } else if(numPlayers === 1 ){
-//     numPlayers++;
-//     res.json({
-//       myTeam: "blue"
-//     }) else {
-//       res.send("Game Full")
-//     }
-//   }
+  // res.json({
+  //   resp: 'joined game'
+  // })
+  if (numPlayers === 0){
+    numPlayers++;
+    res.json({
+      myTeam: "red";
+    })
+  } else if(numPlayers === 1 ){
+    numPlayers++;
+    res.json({
+      myTeam: "blue"
+    }) else {
+      res.send("Game Full")
+    }
+  }
 })
 app.get('/setubboard', function(req, res){
   boardTranspose = (transpos(board, 8));
