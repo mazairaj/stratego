@@ -185,7 +185,7 @@ app.post('/makemove', function(req, res) {
   if(direction==='illegal move') {
     res.json({
       board: transpose(board),
-      currentPlayer: currentPlayer
+      currentPlayer: currentPlayer,
       move: [pos1]
     });
   };
