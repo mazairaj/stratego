@@ -186,9 +186,10 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
-  makeMove(position,direction);
+  var newboard = makeMove(position,direction);
+
   res.json({
-    board: transpose(board),
+    board: newboard,
     currentPlayer: nextPlayer(),
     move: []
   });
