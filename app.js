@@ -198,7 +198,7 @@ app.post('/makemove', function(req, res) {
 
   res.json({
     board: newboard,
-    currentPlayer: nextPlayerVal,
+    currentPlayer: 'red',
     move: []
   });
 })
