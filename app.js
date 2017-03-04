@@ -174,6 +174,7 @@ app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
   board = newBoard;
+  res.json('true');
 })
 app.post('/makemove', function(req, res) {
   console.log(board)
