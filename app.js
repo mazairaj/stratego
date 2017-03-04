@@ -143,16 +143,16 @@ console.log('direction:',direction)
 }
 var checkValidMove=function(pos1,pos2) {
   if (pos2.row-pos1.row === 1) {
-    return 'right'
+    return 'down'
   }
   if (pos2.row-pos1.row === -1) {
-    return 'left'
+    return 'up'
   }
   if (pos2.col-pos1.col === 1) {
-      return 'down'
+      return 'left'
     }
     if (pos2.col-pos1.col === -1) {
-      return 'up'
+      return 'right'
   }
   return 'illegal move'
 }
@@ -188,13 +188,15 @@ app.post('/makemove', function(req, res) {
   };
 
   var newboard = makeMove(pos1,direction);
+  console.log(newboard)
   var nextPlayer = nextPlayer()
-  res.send(newboard);
-  // res.json({
-  //   board: newboard,
-  //   currentPlayer: nextPlayer,
-  //   move: []
-  // });
+  console.log(nextPlayer);
+  // res.send(newboard);
+  res.json({
+    board: newboard,
+    currentPlayer: nextPlayer,
+    move: []
+  });
 })
 
 app.listen(process.env.PORT||3000)
