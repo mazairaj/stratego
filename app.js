@@ -176,23 +176,23 @@ app.get('/joingame', function(req, res){
   console.log('num ', numPlayers)
   var myTeam = "";
   if (numPlayers === 0){
-    numPlayers++;
+    numPlayers = 1;
     res.json({
       myTeam: 'red'
     })
   }
    if(numPlayers === 1 ){
-    numPlayers++;
+    numPlayers = 2;
     res.json({
       myTeam: 'blue'
     })
     console.log('2 ',myTeam)
   }
-  // if (numPlayers >= 2){
-  //   res.json({
-  //     myTeam: 'Game Full'
-  //   })
-  //   }
+  if (numPlayers = 2){
+    res.json({
+      myTeam: 'Game Full'
+    })
+    }
   //   console.log('3', myTeam)
 });
 
