@@ -169,7 +169,7 @@ app.post('/test', function(req, res){
     final: 'hey'
   })
 })
-app.post('/joingame', function(req, res){
+app.get('/joingame', function(req, res){
 
   var myTeam = "";
   if (numPlayers === 0){
