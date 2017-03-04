@@ -177,7 +177,7 @@ app.post('/makemove', function(req, res) {
   console.log(req.body)
   var moves = req.body.move;
   var pos2 = moves[1];
-  var pos1 = moves[1];
+  var pos1 = moves[0];
   var direction = checkValidMove(pos1,pos2);
   if(direction==='illegal move') {
     res.json({
@@ -189,7 +189,7 @@ app.post('/makemove', function(req, res) {
   var newboard = makeMove(position,direction);
 
   res.json({
-    board: newboard,
+    board: newboard;
     currentPlayer: nextPlayer(),
     move: []
   });
