@@ -177,6 +177,7 @@ app.post('/setupboard',function(req,res) {
 
 
 app.post('/makemove', function(req, res) {
+  console.log('in');
   console.log('BOARD BEFORE MOVE IS MADE:',board)
   var moves = req.body.move;
   var copyBoard = [...board];
@@ -185,6 +186,7 @@ app.post('/makemove', function(req, res) {
   var direction = checkValidMove(pos1,pos2);
   if(direction==='illegal move') {
     copyBoard = transpose(copyBoard, 8)
+    console.log('COPY', copyBoard)
     res.json({
       board: copyBoard,
       currentPlayer: currentPlayer,
@@ -194,7 +196,7 @@ app.post('/makemove', function(req, res) {
   console.log('legal move')
   var newboard = makeMove(pos1,direction);
   console.log("New BOARD", newboard)
-  var newboard2 = transpose(newboard, 8)
+  // var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
   console.log('BOARD AFTER', newboard2);
   res.json({
