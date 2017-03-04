@@ -143,16 +143,16 @@ console.log('direction:',direction)
   }
 }
 var checkValidMove=function(pos1,pos2) {
-  if (pos2.row-pos1.row === 1) {
+  if (pos2.row-pos1.row === 1 && pos2.col - pos1.col === 0) {
     return 'down'
   }
-  if (pos2.row-pos1.row === -1) {
+  if (pos2.row-pos1.row === -1 && pos2.col - pos1.col === 0) {
     return 'up'
   }
-  if (pos2.col-pos1.col === 1) {
+  if (pos2.col-pos1.col === 1 && pos2.row - pos1.row === 0) {
       return 'right'
     }
-    if (pos2.col-pos1.col === -1) {
+    if (pos2.col-pos1.col === -1 && pos2.row - pos1.row === 0) {
       return 'left'
   }
   return 'illegal move'
