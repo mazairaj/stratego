@@ -37,14 +37,14 @@ var spy = {value: 'S', team: 'red'}
 var att = {value: 6, team: 'blue'}
 var def = {value: 3, team: 'red'}
 var bomb = {value: 'B', team: 'blue'}
-var board= [ [att, bomb, null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null],
-             [null,null,null,null,null,null,null,null]
+var board= [ ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
 ]
 var currentPlayer = 'red';
 function transpose(arr,arrLen) {
@@ -65,7 +65,7 @@ var updatePos = function(position1, position2){
   console.log('update')
   initialPiece = board[position1.row][position1.col];
   board[position2.row][position2.col] = initialPiece;
-  board[position1.row][position1.col] = null;
+  board[position1.row][position1.col] = "";
   return board;
 }
 var battle = function(position1, position2) {
@@ -80,32 +80,32 @@ var battle = function(position1, position2) {
   }
   if (defender.value === 'B') {
     if(attacker.value === 3) {
-      board[position2.row][position2.col] = null;
+      board[position2.row][position2.col] = "";
       updatePos(position1, position2);
       return attacker.value.toString()
     }else{
-      board[position1.row][position1.col] = null;
-      board[position2.row][position2.col] = null;
+      board[position1.row][position1.col] = "";
+      board[position2.row][position2.col] = "";
       return attacker.value.toString()
     }
   }
   if (attacker.value === 'S') {
-    board[position2.row][position2.col] = null;
+    board[position2.row][position2.col] =  "";
     updatePos(position1, position2);
     return attacker.value.toString()
   }
   if (defender.value === 'S') {
     console.log('spy defender')
-    board[position2.row][position2.col] = null;
+    board[position2.row][position2.col] = "";
     updatePos(position1, position2);
     return attacker.value.toString()
   }
   if (attacker.value > defender.value) {
-    board[position2.row][position2.col] = null;
+    board[position2.row][position2.col] = "";
     updatePos(position1, position2);
     return attacker.value.toString()
   } else {
-    board[position1.row][position1.col] = null;
+    board[position1.row][position1.col] = "";
     return defender.value.toString()
   }
 }
@@ -113,28 +113,28 @@ var makeMove = function(position, direction){
 console.log('direction:',direction)
   if (direction === 'up') {
     console.log('up')
-    if (board[position.row - 1][position.col] === null) {
+    if (board[position.row - 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row - 1, col: position.col});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row - 1, col: position.col})
     }
   }  if (direction === 'down') {
     console.log('down')
-    if (board[position.row + 1][position.col] === null) {
+    if (board[position.row + 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row + 1, col: position.col});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row + 1, col: position.col})
     }
   }  if (direction === 'left') {
     console.log('left')
-    if(board[position.row][position.col-1] === null) {
+    if(board[position.row][position.col-1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col - 1});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row , col: position.col - 1})
     }
   } if (direction === 'right') {
     console.log('right')
-    if(board[position.row][position.col+1] === null) {
+    if(board[position.row][position.col+1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col + 1});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row, col: position.col + 1})
