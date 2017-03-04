@@ -173,19 +173,20 @@ app.post('/joingame', function(req, res){
   // res.json({
   //   resp: 'joined game'
   // })
-  var myTeam;
-  if (numPlayers === 0){
-    numPlayers++;
-    myTeam = 'red'
-  } else if(numPlayers === 1 ){
-    numPlayers++;
-    myTeam = 'blue',
-  } else {
-      res.send("Game Full")
-    }
-  res.json({
-    myTeam: myTeam
-  })
+  res.send('hello world')
+  // var myTeam;
+  // if (numPlayers === 0){
+  //   numPlayers++;
+  //   myTeam = 'red'
+  // } else if(numPlayers === 1 ){
+  //   numPlayers++;
+  //   myTeam = 'blue',
+  // } else {
+  //     res.send("Game Full")
+  //   }
+  // res.json({
+  //   myTeam: myTeam
+  // })
 });
 
 app.get('/setubboard', function(req, res){
