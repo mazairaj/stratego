@@ -186,13 +186,15 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
-  var newboard = makeMove(pos1,direction);
-  var nextPlayer = nextPlayer()
-  res.json({
-    board: newboard,
-    currentPlayer: nextPlayer,
-    move: []
-  });
+  console.log('here');
+  res.json('true');
+  // var newboard = makeMove(pos1,direction);
+  // var nextPlayer = nextPlayer()
+  // res.json({
+  //   board: newboard,
+  //   currentPlayer: nextPlayer,
+  //   move: []
+  // });
 })
 
 app.listen(process.env.PORT||3000)
