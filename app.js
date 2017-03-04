@@ -47,7 +47,6 @@ var board= [ ["", "","","","","","",""],
              ["", "","","","","","",""],
 ]
 var currentPlayer = 'red';
-var numPlayers = 0;
 function transpose(arr,arrLen) {
   var newArray = [...arr];
   for (var i = 0; i < arrLen; i++) {
@@ -172,7 +171,8 @@ app.post('/test', function(req, res){
 app.get('/joingame', function(req, res){
 
   var myTeam = "";
-  if (numPlayers === 0){
+  if (!numPlayers){
+    var numPlayers = 1;
     res.json({
       myTeam: 'red'
     })
