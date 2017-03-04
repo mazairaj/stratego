@@ -173,22 +173,23 @@ app.post('/joingame', function(req, res){
 
   var myTeam = "";
   if (numPlayers === 0){
-    numPlayers++;
-    myTeam = 'red'
-    console.log('1 ', myTeam)
+    res.json({
+      myTeam: 'red'
+    })
   }
    if(numPlayers === 1 ){
     numPlayers++;
-    myTeam = 'blue',
+    res.json({
+      myTeam: 'blue'
+    })
     console.log('2 ',myTeam)
   }
   if (numPlayers > 1){
-    myTeam = 'Game Full'
+    res.json({
+      myTeam: 'Game Full'
+    })
     }
     console.log('3', myTeam)
-  res.json({
-    myTeam: "myTeam"
-  })
 });
 
 app.get('/setubboard', function(req, res){
