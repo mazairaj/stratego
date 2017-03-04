@@ -169,7 +169,7 @@ app.post('/test', function(req, res){
     final: 'hey'
   })
 })
-app.get('/joingame', function(req, res){
+app.post('/joingame', function(req, res){
   // res.json({
   //   resp: 'joined game'
   // })
@@ -186,7 +186,8 @@ app.get('/joingame', function(req, res){
   res.json({
     myTeam: myTeam
   })
-})
+});
+
 app.get('/setubboard', function(req, res){
   boardTranspose = (transpos(board, 8));
   res.json({
