@@ -150,10 +150,10 @@ var checkValidMove=function(pos1,pos2) {
     return 'up'
   }
   if (pos2.col-pos1.col === 1) {
-      return 'left'
+      return 'right'
     }
     if (pos2.col-pos1.col === -1) {
-      return 'right'
+      return 'left'
   }
   return 'illegal move'
 }
