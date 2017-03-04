@@ -33,11 +33,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 var initialBoardLayout=[]
 var isDefeated = false;
 var winner;
+if (!numPlayers) {
+  var numPlayers = 0
+}
 var spy = {value: 'S', team: 'red'}
 var att = {value: 6, team: 'blue'}
 var def = {value: 3, team: 'red'}
 var bomb = {value: 'B', team: 'blue'}
-var board= [ ["", "","","","","","",""],
+var emptyBoard= [ ["", "","","","","","",""],
              ["", "","","","","","",""],
              ["", "","","","","","",""],
              ["", "","","","","","",""],
@@ -170,9 +173,10 @@ app.post('/test', function(req, res){
 })
 app.get('/joingame', function(req, res){
 
+  console.log('num ', numPlayers)
   var myTeam = "";
-  if (!numPlayers){
-    var numPlayers = 1;
+  if (numPlayers===0){
+    numPlayers = 1;
     res.json({
       myTeam: 'red'
     })
