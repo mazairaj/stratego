@@ -187,8 +187,7 @@ app.get('/joingame', function(req, res){
       myTeam: 'blue'
     })
     console.log('2 ',myTeam)
-  }
-  if (numPlayers = 2){
+  } else if (numPlayers = 2){
     res.json({
       myTeam: 'Game Full'
     })
