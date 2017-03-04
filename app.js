@@ -162,12 +162,9 @@ app.get('/',function(req,res) {
 
 app.post('/test', function(req, res){
   console.log('body', req.body)
-  var newboard = req.body.board;
-  var newboard2 = transpose(newboard, 8);
-  var sendBack = transpose(newboard2, 8);
 
   res.json({
-    final: sendBack
+    final: 'hey'
   })
 })
 app.post('/setupboard',function(req,res) {
