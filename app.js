@@ -175,23 +175,23 @@ app.post('/setupboard',function(req,res) {
 })
 app.post('/makemove', function(req, res) {
   console.log(req.body)
-  var moves = req.body.moves;
-  var pos2 = moves[1];
-  var pos1 = moves[1];
-  // var direction = checkValidMove(pos1,pos2);
-  // if(direction==='illegal move') {
-  //   res.json({
-  //     board: transpose(board),
-  //     currentPlayer: currentPlayer,
-  //     move: [pos1]
-  //   });
-  // };
-  // makeMove(position,direction);
-  // res.json({
-  //   board: transpose(board),
-  //   currentPlayer: nextPlayer(),
-  //   move: []
-  res.json(req.body)
+  var moves = req.body.move;
+  var pos2 = move[1];
+  var pos1 = move[1];
+  var direction = checkValidMove(pos1,pos2);
+  if(direction==='illegal move') {
+    res.json({
+      board: transpose(board),
+      currentPlayer: currentPlayer,
+      move: [pos1]
+    });
+  };
+  makeMove(position,direction);
+  res.json({
+    board: transpose(board),
+    currentPlayer: nextPlayer(),
+    move: []
+  });
 })
 
 app.listen(process.env.PORT||3000)
