@@ -80,7 +80,7 @@ var battle = function(position1, position2) {
     return attacker.value
   }
   if (defender.value === 'B') {
-    if(attacker.value === 3) {
+    if(parseInt(attacker.value) === 3) {
       board[position2.row][position2.col] = "";
       updatePos(position1, position2);
       return attacker.value.toString()
@@ -101,7 +101,7 @@ var battle = function(position1, position2) {
     updatePos(position1, position2);
     return attacker.value.toString()
   }
-  if (attacker.value > defender.value) {
+  if (parseInt(attacker.value) > parseInt(defender.value)) {
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
     return attacker.value.toString()
