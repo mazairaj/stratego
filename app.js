@@ -193,11 +193,11 @@ app.post('/makemove', function(req, res) {
   };
 
   var newboard = makeMove(pos1,direction);
-  var newboard = transpose(newboard, 8)
+  var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
 
   res.json({
-    board: newboard,
+    board: newboard2,
     currentPlayer: 'red',
     move: []
   });
