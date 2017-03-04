@@ -190,7 +190,6 @@ app.post('/makemove', function(req, res) {
   var newboard = makeMove(pos1,direction);
   console.log(newboard)
   var nextPlayerVal = 'blue' //nextPlayer()
-  console.log(nextPlayer);
   // res.send(newboard);
   res.json({
     board: newboard,
