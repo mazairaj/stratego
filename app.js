@@ -192,7 +192,6 @@ app.post('/makemove', function(req, res) {
   //   currentPlayer: nextPlayer(),
   //   move: []
   res.json(req.body)
-  });
 })
 
 app.listen(process.env.PORT||3000)
