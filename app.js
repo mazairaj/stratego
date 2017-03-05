@@ -269,6 +269,7 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
+  
   console.log('legal move')
   var newboard = makeMove(pos1,direction);
   console.log("New BOARD", newboard)
