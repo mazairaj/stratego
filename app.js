@@ -166,7 +166,6 @@ var checkValidMove=function(pos1,pos2) {
 app.get('/',function(req,res) {
   res.send('hello world')
 })
-
 app.post('/test', function(req, res){
   console.log('body', req.body)
 
