@@ -221,8 +221,10 @@ app.get('/joingame', function(req, res){
 });
 
 app.post('/stateupdate', function(req, res){
-  var bd = req.body.reqBoard
-  board = transpose(bd, 8);
+
+  // if (board[0][0] !== "" && board[7][7] !== "")
+  //   var bd = req.body.reqBoard
+  // board = transpose(board, 8);
   var returnBoard = transpose(board, 8);
   var response = {board: returnBoard, currPlayer: currentPlayer};
   res.json(response)
