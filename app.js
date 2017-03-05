@@ -217,7 +217,8 @@ app.get('/joingame', function(req, res){
   //   console.log('3', myTeam)
 });
 
-app.get('/stateupdate', function(req, res){
+app.post('/stateupdate', function(req, res){
+  board = transpose(req.body.reqBoard);
   var returnBoard = transpose(board, 8);
   var response = {board: returnBoard, currPlayer: currentPlayer};
   console.log('in server')
