@@ -178,13 +178,14 @@ app.get('/joingame', function(req, res){
   var team;
   console.log('num ', numPlayers)
   if (!gameFull) {
-    team = numPlayers === 0 ? 'red' : 'blue'
+    team = (numPlayers === 0 ? 'red' : 'blue')
     numPlayers++
     if (numPlayers === 2) {
       gameFull = true;
     }
   } else {
     team = 'Game is Full'
+  }
 
   // if
   //   numPlayers = 1;
