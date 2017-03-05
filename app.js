@@ -213,6 +213,7 @@ app.post('/stateUpdate', function(req, res){
   var isSetUp = req.body.isSetUp;
   var clientBoardTranspose = transpose(clientBoard, 8)
   if (!isSetUp){
+    
     var clientBoard = req.body.board;
     var thisTeam = req.body.team;
     if (thisTeam === 'blue') {
