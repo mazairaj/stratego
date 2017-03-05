@@ -227,9 +227,9 @@ app.post('/stateupdate', function(req, res){
 });
 
 app.post('/setupboard',function(req,res) {
-  console.log(req.body.board);
   newBoard = req.body.board;
   var thisTeam = req.body.team;
+  console.log('***********', thisTeam)
   boardTranspose = transpose(newBoard, 8);
   if (thisTeam === 'blue') {
     console.log('I AM TEAM ', thisTeam)
@@ -242,7 +242,7 @@ app.post('/setupboard',function(req,res) {
     board[6] = boardTranspose[6];
     board[7] = boardTranspose[7];
   }
-  console.log(board);
+  console.log('Post setupboard ********', board)
   var boardTranspose = (transpose(board, 8));
   res.json({board: boardTranspose});
 })
