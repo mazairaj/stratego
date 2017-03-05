@@ -220,6 +220,7 @@ app.get('/stateupdate', function(req, res){
 });
 
 app.post('/setupboard',function(req,res) {
+  
   newBoard = req.body.board;
   var thisTeam = req.body.team;
   boardTranspose = transpose(newBoard, 8);
@@ -233,7 +234,8 @@ app.post('/setupboard',function(req,res) {
     board[7] = boardTranspose[7];
   }
 
-  res.json('true');
+  var boardTranspose = (transpose(board, 8));
+  res.json(board: boardTranspose);
 })
 
 
