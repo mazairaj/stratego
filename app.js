@@ -29,6 +29,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+var newBoard;
 var initialBoardLayout=[]
 var isDefeated = false;
 var winner;
@@ -231,7 +232,7 @@ app.post('/stateupdate', function(req, res){
 });
 
 app.post('/setupboard',function(req,res) {
-  var newBoard = req.body.board;
+  newBoard = req.body.board;
   console.log('NEWBOARD ', newBoard);
   var thisTeam = req.body.team;
   var boardTranspose = transpose(newBoard, 8);
