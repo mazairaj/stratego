@@ -33,6 +33,7 @@ var initialBoardLayout=[]
 var isDefeated = false;
 var winner;
 if (!gameFull){
+  console.log('in gamefull')
   var gameFull = false;
 }
 if (!numPlayers) {
@@ -43,6 +44,7 @@ var att = {value: 6, team: 'blue'}
 var def = {value: 3, team: 'red'}
 var bomb = {value: 'B', team: 'blue'}
 if (!board){
+  console.log('in Set Board')
   var board= [ ["", "","","","","","",""],
                ["", "","","","","","",""],
                ["", "","","","","","",""],
@@ -56,6 +58,7 @@ if (!board){
 
 
 if (!currentPlayer){
+  console.log('in current Player')
   var currentPlayer = 'red';
 }
 function transpose(arr,arrLen) {
@@ -229,7 +232,7 @@ app.post('/stateupdate', function(req, res){
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   var thisTeam = req.body.team;
-  console.log('***********', thisTeam) 
+  console.log('***********', thisTeam)
   boardTranspose = transpose(newBoard, 8);
   if (thisTeam === 'blue') {
     console.log('I AM TEAM ', thisTeam)
