@@ -218,6 +218,7 @@ app.get('/setupboard', function(req, res){
     currentPlayer: 'currentPlayer'
   })
 });
+
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
