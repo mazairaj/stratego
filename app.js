@@ -232,15 +232,17 @@ app.post('/setupboard',function(req,res) {
   var thisTeam = req.body.team;
   boardTranspose = transpose(newBoard, 8);
   if (thisTeam === 'blue') {
+    console.log('I AM TEAM ', thisTeam)
     board[0] = boardTranspose[0];
     board[1] = boardTranspose[1];
     board[2] = boardTranspose[2];
   } else if (thisTeam === 'red') {
+    console.log('I AM TEAM ', thisTeam)
     board[5] = boardTranspose[5];
     board[6] = boardTranspose[6];
     board[7] = boardTranspose[7];
   }
-
+  console.log(board);
   var boardTranspose = (transpose(board, 8));
   res.json({board: boardTranspose});
 })
