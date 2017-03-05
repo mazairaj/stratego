@@ -208,12 +208,11 @@ app.get('/joingame', function(req, res){
   //   console.log('3', myTeam)
 });
 
-app.post('/stateUpdate', function(req, res){
+app.post('/stateupdate', function(req, res){
 
   var isSetUp = req.body.isSetUp;
   var clientBoardTranspose = transpose(clientBoard, 8)
   if (!isSetUp){
-    
     var clientBoard = req.body.board;
     var thisTeam = req.body.team;
     if (thisTeam === 'blue') {
@@ -226,7 +225,9 @@ app.post('/stateUpdate', function(req, res){
       board[7] = clientBoardTranspose[7];
     }
   }
+
   var boardTranspose = (transpose(board, 8));
+  console.log('in server')
   res.json({
     board: boardTranspose,
     currentPlayer: 'currentPlayer'
