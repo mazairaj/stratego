@@ -223,6 +223,7 @@ app.get('/stateupdate', function(req, res){
 });
 
 app.post('/setupboard',function(req,res) {
+  console.log(req.body.board);
   newBoard = req.body.board;
   var thisTeam = req.body.team;
   boardTranspose = transpose(newBoard, 8);
@@ -239,7 +240,6 @@ app.post('/setupboard',function(req,res) {
   var boardTranspose = (transpose(board, 8));
   res.json({board: boardTranspose});
 })
-
 
 app.post('/makemove', function(req, res) {
   console.log('in');
@@ -261,7 +261,7 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
-  
+
   console.log('legal move')
   var newboard = makeMove(pos1,direction);
   console.log("New BOARD", newboard)
