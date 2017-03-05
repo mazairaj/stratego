@@ -215,24 +215,17 @@ app.post('/stateupdate', function(req, res){
 
   var isSetUp = req.body.isSetUp;
   if (!isSetUp){
-    var clientBoard = req.body.board;
-    var clientBoardTranspose = transpose(clientBoard, 8)
-    var thisTeam = req.body.team;
-    if (thisTeam === 'blue') {
-      board[0] = clientBoardTranspose[0];
-      board[1] = clientBoardTranspose[1];
-      board[2] = clientBoardTranspose[2];
-    } else if (thisTeam === 'red') {
-      board[5] = clientBoardTranspose[5];
-      board[6] = clientBoardTranspose[6];
-      board[7] = clientBoardTranspose[7];
-    }
-  }
-  var returnBoard = transpose(board, 8);
 
-  var response = {board: returnBoard, currPlayer: currentPlayer};
-  console.log('in server')
-  res.json(response)
+    var returnBoard = transpose(board, 8);
+
+    var response = {board: returnBoard, currPlayer: currentPlayer, update: true};
+    console.log('in server')
+    res.json(response)
+  } else {
+    res.json({
+      update: false
+    })
+  }
 });
 
 app.post('/setupboard',function(req,res) {
