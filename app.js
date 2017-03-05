@@ -235,7 +235,8 @@ app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   // console.log('NEWBOARD ', newBoard);
   var thisTeam = req.body.team;
-  var boardTranspose = transpose(newBoard, 8);
+  // var boardTranspose = transpose(newBoard, 8);
+  var boardTranspose = newBoard;
   // console.log('BOARDTRANSPOSE ',boardTranspose)
   console.log(newBoard)
   if (thisTeam === 'blue') {
