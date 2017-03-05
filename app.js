@@ -190,6 +190,7 @@ app.get('/joingame', function(req, res){
   } else {
     team = 'Game is Full'
   }
+  
 
   // if
   //   numPlayers = 1;
