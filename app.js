@@ -51,7 +51,9 @@ var board= [ ["", "","","","","","",""],
              ["", "","","","","","",""],
              ["", "","","","","","",""],
 ]
-var currentPlayer = 'red';
+if (!currentPlayer){
+  var currentPlayer = 'red';
+}
 function transpose(arr,arrLen) {
   var newArray = [...arr];
   for (var i = 0; i < arrLen; i++) {
@@ -226,12 +228,9 @@ app.post('/stateupdate', function(req, res){
     }
   }
 
-  var boardTranspose = (transpose(board, 8));
+  var response = {board: transpose(board, 8), currentPlayer: currentPlayer};
   console.log('in server')
-  res.json({
-    board: boardTranspose,
-    currentPlayer: 'currentPlayer'
-  })
+  res.json(response)
 });
 
 app.post('/setupboard',function(req,res) {
