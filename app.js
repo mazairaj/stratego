@@ -232,6 +232,7 @@ app.post('/setupboard',function(req,res) {
     board[6] = boardTranspose[6];
     board[7] = boardTranspose[7];
   }
+  
   res.json('true');
 })
 
