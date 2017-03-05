@@ -208,8 +208,24 @@ app.get('/joingame', function(req, res){
   //   console.log('3', myTeam)
 });
 
-app.get('/setupboard', function(req, res){
-  boardTranspose = (transpose(board, 8));
+app.post('/stateUpdate', function(req, res){
+
+  var isSetUp = req.body.isSetUp;
+  var clientBoardTranspose = transpose(clientBoard, 8)
+  if (!isSetUp){
+    var clientBoard = req.body.board;
+    var thisTeam = req.body.team;
+    if (thisTeam === 'blue') {
+      board[0] = clientBoardTranspose[0];
+      board[1] = clientBoardTranspose[1];
+      board[2] = clientBoardTranspose[2];
+    } else if (thisTeam === 'red') {
+      board[5] = clientBoardTranspose[5];
+      board[6] = clientBoardTranspose[6];
+      board[7] = clientBoardTranspose[7];
+    }
+  }
+  var boardTranspose = (transpose(board, 8));
   res.json({
     board: boardTranspose,
     currentPlayer: 'currentPlayer'
