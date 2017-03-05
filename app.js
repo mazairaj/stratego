@@ -43,7 +43,7 @@ var spy = {value: 'S', team: 'red'}
 var att = {value: 6, team: 'blue'}
 var def = {value: 3, team: 'red'}
 var bomb = {value: 'B', team: 'blue'}
-var emptyBoard= [ ["", "","","","","","",""],
+var board= [ ["", "","","","","","",""],
              ["", "","","","","","",""],
              ["", "","","","","","",""],
              ["", "","","","","","",""],
@@ -221,8 +221,17 @@ app.get('/setupboard', function(req, res){
 
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
+  var thisTeam = req.body.team;
   boardTranspose = transpose(newBoard, 8);
-  board = boardTranspose;
+  if (thisTeam === 'blue') {
+    board[0] = boardTranspose[0];
+    board[1] = boardTranspose[1];
+    board[2] = boardTranspose[2];
+  } else if (thisTeam === 'red') {
+    board[5] = boardTranspose[5];
+    board[6] = boardTranspose[6];
+    board[7] = boardTranspose[7];
+  }
   res.json('true');
 })
 
