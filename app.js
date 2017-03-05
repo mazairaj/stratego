@@ -226,6 +226,7 @@ app.post('/stateupdate', function(req, res){
   //   var bd = req.body.reqBoard
   // board = transpose(board, 8);
   var returnBoard = board;//transpose(board, 8);
+  
   var response = {board: returnBoard, currPlayer: currentPlayer};
   res.json(response)
 });
