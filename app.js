@@ -220,9 +220,10 @@ app.get('/joingame', function(req, res){
 app.post('/stateupdate', function(req, res){
   board = transpose(req.body.reqBoard);
   var returnBoard = transpose(board, 8);
-  var response = {board: returnBoard, currPlayer: currentPlayer};
+  var response = {board: board, currPlayer: currentPlayer};
   console.log('in server')
   res.json(response)
+
 });
 
 app.post('/setupboard',function(req,res) {
