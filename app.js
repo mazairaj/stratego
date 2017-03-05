@@ -219,7 +219,6 @@ app.get('/stateupdate', function(req, res){
   var response = {board: returnBoard, currPlayer: currentPlayer};
   console.log('in server')
   res.json(response)
-
 });
 
 app.post('/setupboard',function(req,res) {
