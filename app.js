@@ -211,7 +211,7 @@ app.get('/joingame', function(req, res){
   //   console.log('3', myTeam)
 });
 
-app.post('/stateupdate', function(req, res){
+app.get('/stateupdate', function(req, res){
 
   var returnBoard = transpose(board, 8);
 
