@@ -232,7 +232,7 @@ app.post('/stateupdate', function(req, res){
 
 app.post('/setupboard',function(req,res) {
   var newBoard = req.body.board;
-  console.log('NEWBOARD ', newboard);
+  console.log('NEWBOARD ', newBoard);
   var thisTeam = req.body.team;
   var boardTranspose = transpose(newBoard, 8);
   console.log('BOARDTRANSPOSE ',boardTranspose)
