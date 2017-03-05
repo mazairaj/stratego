@@ -218,12 +218,12 @@ app.get('/joingame', function(req, res){
 });
 
 app.post('/stateupdate', function(req, res){
-  board = transpose(req.body.reqBoard, 8);
+  var bd = req.body.reqBoard
+  board = transpose(bd, 8);
   var returnBoard = transpose(board, 8);
   var response = {board: returnboard, currPlayer: currentPlayer};
   console.log('in server')
   res.json(response)
-
 });
 
 app.post('/setupboard',function(req,res) {
