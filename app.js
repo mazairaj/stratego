@@ -33,6 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 var initialBoardLayout=[]
 var isDefeated = false;
 var winner;
+if (!gameFull){
+  var gameFull = false;
+}
 if (!numPlayers) {
   var numPlayers = 0
 }
@@ -172,26 +175,38 @@ app.post('/test', function(req, res){
   })
 })
 app.get('/joingame', function(req, res){
-
+  var team;
   console.log('num ', numPlayers)
-  var myTeam = "";
-  if (numPlayers === 0){
-    numPlayers = 1;
-    res.json({
-      myTeam: 'red'
-    })
-  }
-   if(numPlayers === 1 ){
-    numPlayers = 2;
-    res.json({
-      myTeam: 'blue'
-    })
-    console.log('2 ',myTeam)
-  } else if (numPlayers = 2){
-    res.json({
-      myTeam: 'Game Full'
-    })
+  if (!gameFull) {
+    team = numPlayers === 0 ? 'red' : 'blue'
+    numPlayers++
+    if (numPlayers === 2) {
+      gameFull = true;
     }
+  } else {
+    team = 'Game is Full'
+
+  // if
+  //   numPlayers = 1;
+  //   res.json({
+  //     myTeam: 'red'
+  //   })
+  // }
+  //  if(numPlayers === 1 ){
+  //   numPlayers = 2;
+  //   res.json({
+  //     myTeam: 'blue'
+  //   })
+  //   console.log('2 ',myTeam)
+  // } else if (numPlayers = 2){
+  //   res.json({
+  //     myTeam: 'Game Full'
+  //   })
+  //   }
+
+  res.json({
+    myTeam: team
+  })
   //   console.log('3', myTeam)
 });
 
