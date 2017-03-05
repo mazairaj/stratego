@@ -235,8 +235,7 @@ app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   // console.log('NEWBOARD ', newBoard);
   var thisTeam = req.body.team;
-  // var boardTranspose = transpose(newBoard, 8);
-  var boardTranspose = newBoard;
+  var boardTranspose = transpose(newBoard, 8);
   // console.log('BOARDTRANSPOSE ',boardTranspose)
   console.log(newBoard)
   if (thisTeam === 'blue') {
@@ -253,7 +252,7 @@ app.post('/setupboard',function(req,res) {
   // console.log('This is the board After', board)
   var flipBoard = [...board]
   // console.log('Post setupboard ********', board)
-  // var newboardTranspose = (transpose(flipBoard, 8));
+  var newboardTranspose = (transpose(flipBoard, 8));
 
   res.json({board: flipBoard});
 })
