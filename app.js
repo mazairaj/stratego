@@ -212,21 +212,21 @@ app.get('/joingame', function(req, res){
 
 app.post('/stateupdate', function(req, res){
 
-  // var isSetUp = req.body.isSetUp;
-  // var clientBoardTranspose = transpose(clientBoard, 8)
-  // if (!isSetUp){
-  //   var clientBoard = req.body.board;
-  //   var thisTeam = req.body.team;
-  //   if (thisTeam === 'blue') {
-  //     board[0] = clientBoardTranspose[0];
-  //     board[1] = clientBoardTranspose[1];
-  //     board[2] = clientBoardTranspose[2];
-  //   } else if (thisTeam === 'red') {
-  //     board[5] = clientBoardTranspose[5];
-  //     board[6] = clientBoardTranspose[6];
-  //     board[7] = clientBoardTranspose[7];
-  //   }
-  // }
+  var isSetUp = req.body.isSetUp;
+  var clientBoardTranspose = transpose(clientBoard, 8)
+  if (!isSetUp){
+    var clientBoard = req.body.board;
+    var thisTeam = req.body.team;
+    if (thisTeam === 'blue') {
+      board[0] = clientBoardTranspose[0];
+      board[1] = clientBoardTranspose[1];
+      board[2] = clientBoardTranspose[2];
+    } else if (thisTeam === 'red') {
+      board[5] = clientBoardTranspose[5];
+      board[6] = clientBoardTranspose[6];
+      board[7] = clientBoardTranspose[7];
+    }
+  }
 
   var response = {board: 'transpose(board, 8)', currentPlayer: 'currentPlayer'};
   console.log('in server')
