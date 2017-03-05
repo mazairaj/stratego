@@ -211,7 +211,6 @@ app.get('/joingame', function(req, res){
 });
 
 app.post('/stateupdate', function(req, res){
-  console.log('****************', req.body)
 
   var isSetUp = req.body.isSetUp;
   var clientBoardTranspose = transpose(clientBoard, 8)
@@ -229,7 +228,7 @@ app.post('/stateupdate', function(req, res){
     }
   }
 
-  var response = {board: 'transpose(board, 8)', currentPlayer: 'currentPlayer'};
+  var response = {board: transpose(board, 8), currPlayer: currentPlayer};
   console.log('in server')
   res.json(response)
 });
