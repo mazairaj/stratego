@@ -275,6 +275,7 @@ app.post('/makemove', function(req, res) {
   console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
+  currentPlayer = nextPlayerVal;
   console.log('MaDE MOVE', nextPlayerVal);
   res.json({
     board: newboard2,
