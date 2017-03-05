@@ -225,7 +225,6 @@ app.post('/stateupdate', function(req, res){
   board = transpose(bd, 8);
   var returnBoard = transpose(board, 8);
   var response = {board: returnBoard, currPlayer: currentPlayer};
-  console.log('in server')
   res.json(response)
 });
 
@@ -276,7 +275,7 @@ app.post('/makemove', function(req, res) {
   console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
-  console.log('BOARD AFTER', newboard2);
+  console.log('MaDE MOVE', nextPlayerVal);
   res.json({
     board: newboard2,
     currentPlayer: nextPlayerVal,
