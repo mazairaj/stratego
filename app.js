@@ -233,7 +233,7 @@ app.post('/stateupdate', function(req, res){
 
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
-  // console.log('NEWBOARD ', newBoard);
+  console.log('NEWBOARD ', req.body.board);
   var thisTeam = req.body.team;
   var boardTranspose = transpose(newBoard, 8);
   // console.log('BOARDTRANSPOSE ',boardTranspose)
@@ -252,8 +252,8 @@ app.post('/setupboard',function(req,res) {
   // console.log('This is the board After', board)
   var flipBoard = [...board]
   // console.log('Post setupboard ********', board)
-  var newboardTranspose = (transpose(flipBoard, 8));
-
+  // var newboardTranspose = (transpose(flipBoard, 8));
+  var newboardTranspose = flipboard;
   res.json({board: flipBoard});
 })
 
