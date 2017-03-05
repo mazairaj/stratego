@@ -228,8 +228,9 @@ app.post('/stateupdate', function(req, res){
       board[7] = clientBoardTranspose[7];
     }
   }
+  var returnBoard = transpose([...board], 8);
 
-  var response = {board: transpose(board, 8), currPlayer: currentPlayer};
+  var response = {board: returnBoard, currPlayer: currentPlayer};
   console.log('in server')
   res.json(response)
 });
