@@ -230,7 +230,6 @@ app.post('/stateupdate', function(req, res){
   res.json(response)
 });
 
-
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
   var thisTeam = req.body.team;
