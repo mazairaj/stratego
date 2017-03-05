@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 // var http = require('http')
 // var io = require('socket.io');
 var app = express();
-
 // var server = http.Server(app);
 // var websocket = io(server);
 //
@@ -190,7 +189,7 @@ app.get('/joingame', function(req, res){
   } else {
     team = 'Game is Full'
   }
-  
+
 
   // if
   //   numPlayers = 1;
