@@ -204,7 +204,6 @@ app.get('/joingame', function(req, res){
   //     myTeam: 'Game Full'
   //   })
   //   }
-
   res.json({
     myTeam: team
   })
@@ -232,7 +231,7 @@ app.post('/setupboard',function(req,res) {
     board[6] = boardTranspose[6];
     board[7] = boardTranspose[7];
   }
-  
+
   res.json('true');
 })
 
