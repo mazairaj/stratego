@@ -77,7 +77,7 @@ var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
 }
 var updatePos = function(position1, position2){
-  console.log('update')
+  // console.log('update')
   initialPiece = board[position1.row][position1.col];
   board[position2.row][position2.col] = initialPiece;
   board[position1.row][position1.col] = "";
@@ -86,8 +86,8 @@ var updatePos = function(position1, position2){
 var battle = function(position1, position2) {
   var attacker = board[position1.row][position1.col];
   var defender = board[position2.row][position2.col];
-  console.log('attacker', attacker)
-  console.log('defender', defender)
+  // console.log('attacker', attacker)
+  // console.log('defender', defender)
   if (defender.value === 'F') {
     isDefeated = true;
     var winner = (defender.team === 'red') ? 'blue':'red'
@@ -110,7 +110,7 @@ var battle = function(position1, position2) {
     return attacker.value.toString()
   }
   if (defender.value === 'S') {
-    console.log('spy defender')
+    // console.log('spy defender')
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
     return attacker.value.toString()
@@ -125,30 +125,30 @@ var battle = function(position1, position2) {
   }
 }
 var makeMove = function(position, direction){
-console.log('direction:',direction)
+// console.log('direction:',direction)
   if (direction === 'up') {
-    console.log('up')
+    // console.log('up')
     if (board[position.row - 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row - 1, col: position.col});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row - 1, col: position.col})
     }
   }  if (direction === 'down') {
-    console.log('down')
+    // console.log('down')
     if (board[position.row + 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row + 1, col: position.col});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row + 1, col: position.col})
     }
   }  if (direction === 'left') {
-    console.log('left')
+    // console.log('left')
     if(board[position.row][position.col-1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col - 1});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row , col: position.col - 1})
     }
   } if (direction === 'right') {
-    console.log('right')
+    // console.log('right')
     if(board[position.row][position.col+1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col + 1});
     } else{
@@ -185,7 +185,7 @@ app.post('/test', function(req, res){
 app.get('/joingame', function(req, res){
   var team;
 
-  console.log('num ', numPlayers)
+  // console.log('num ', numPlayers)
   if (!gameFull) {
     team = (numPlayers === 0 ? 'red' : 'blue')
     numPlayers++
@@ -244,14 +244,14 @@ app.post('/setupboard',function(req,res) {
     board[6] = boardTranspose[6];
     board[7] = boardTranspose[7];
   }
-  console.log('Post setupboard ********', board)
+  // console.log('Post setupboard ********', board)
   var boardTranspose = (transpose(board, 8));
   res.json({board: boardTranspose});
 })
 
 app.post('/makemove', function(req, res) {
-  console.log('in');
-  console.log('BOARD BEFORE MOVE IS MADE:',board)
+  // console.log('in');
+  // console.log('BOARD BEFORE MOVE IS MADE:',board)
   newBoard = req.body.board;
   boardTranspose = transpose(newBoard, 8);
   board = boardTranspose;
@@ -262,21 +262,21 @@ app.post('/makemove', function(req, res) {
   var direction = checkValidMove(pos1,pos2);
   if(direction==='illegal move') {
     copyBoard = transpose(copyBoard, 8)
-    console.log('COPY', copyBoard)
+    // console.log('COPY', copyBoard)
     res.json({
       board: copyBoard,
       currentPlayer: currentPlayer,
       move: [pos1]
     });
   };
-  
-  console.log('legal move')
+
+  // console.log('legal move')
   var newboard = makeMove(pos1,direction);
-  console.log("New BOARD", newboard)
+  // console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
   currentPlayer = nextPlayerVal;
-  console.log('MaDE MOVE', nextPlayerVal);
+  // console.log('MaDE MOVE', nextPlayerVal);
   res.json({
     board: newboard2,
     currentPlayer: nextPlayerVal,
