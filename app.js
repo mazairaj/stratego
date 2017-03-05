@@ -213,19 +213,12 @@ app.get('/joingame', function(req, res){
 
 app.post('/stateupdate', function(req, res){
 
-  var isSetUp = req.body.isSetUp;
-  if (!isSetUp){
+  var returnBoard = transpose(board, 8);
 
-    var returnBoard = transpose(board, 8);
+  var response = {board: returnBoard, currPlayer: currentPlayer};
+  console.log('in server')
+  res.json(response)
 
-    var response = {board: returnBoard, currPlayer: currentPlayer, update: true};
-    console.log('in server')
-    res.json(response)
-  } else {
-    res.json({
-      update: false
-    })
-  }
 });
 
 app.post('/setupboard',function(req,res) {
