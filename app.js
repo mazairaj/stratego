@@ -211,6 +211,7 @@ app.get('/joingame', function(req, res){
 });
 
 app.post('/stateupdate', function(req, res){
+  console.log('****************', req.body)
 
   var isSetUp = req.body.isSetUp;
   var clientBoardTranspose = transpose(clientBoard, 8)
