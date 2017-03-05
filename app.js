@@ -213,9 +213,9 @@ app.get('/joingame', function(req, res){
 app.post('/stateupdate', function(req, res){
 
   var isSetUp = req.body.isSetUp;
-  var clientBoardTranspose = transpose(clientBoard, 8)
   if (!isSetUp){
     var clientBoard = req.body.board;
+    var clientBoardTranspose = transpose(clientBoard, 8)
     var thisTeam = req.body.team;
     if (thisTeam === 'blue') {
       board[0] = clientBoardTranspose[0];
