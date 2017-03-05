@@ -175,6 +175,7 @@ app.post('/test', function(req, res){
   res.json({
     final: 'hey'
   })
+
 })
 app.get('/joingame', function(req, res){
   var team;
