@@ -252,9 +252,9 @@ app.post('/setupboard',function(req,res) {
   // console.log('This is the board After', board)
   var flipBoard = [...board]
   // console.log('Post setupboard ********', board)
-  // var newboardTranspose = (transpose(flipBoard, 8));
-  var newboardTranspose = flipboard;
-  res.json({board: flipBoard});
+  var newboardTranspose = (transpose(flipBoard, 8));
+
+  res.json({board: newboardTranspose});
 })
 
 
