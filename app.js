@@ -277,6 +277,7 @@ app.post('/test', function(req, res){
 app.get('/joingame', function(req, res){
   var team;
 
+
   // console.log('num ', numPlayers)
   if (!gameFull) {
     team = (numPlayers === 0 ? 'red' : 'blue')
