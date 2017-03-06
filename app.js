@@ -169,6 +169,7 @@ var makeMove = function(position, direction){
   }
 }
 var checkClearPath = function(pos1, pos2, direction){
+  console.log('check path')
   if (direction == 'up'){
     var currentPos = {row: pos1.row - 1, col: pos1.col}
     if (!(currentPos.row !== pos2.row && currentPos.col !== pos2.col)) {
