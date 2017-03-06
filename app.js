@@ -196,6 +196,7 @@ var checkClearPath = function(pos1, pos2, direction){
     var currentPos = {row: pos1.row, col: pos1.col - 1}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
       if (board[currentPos.row][currentPos.col] === ""){
+        console.log('clearBoard')
         return checkClearPath(currentPos, pos2);
       } else {
         return false;
@@ -207,6 +208,7 @@ var checkClearPath = function(pos1, pos2, direction){
   if (direction == 'right'){
     var currentPos = {row: pos1.row, col: pos1.col + 1}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+      console.log('JSON PARSE STRING WORKED')
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
       } else {
@@ -217,6 +219,7 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
 }
+
 var checkValidMove=function(pos1,pos2) {
   if (board[pos1.row][pos1.col].piece !== '2') {
     if (pos2.row-pos1.row === 1 && pos2.col - pos1.col === 0) {
