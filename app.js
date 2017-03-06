@@ -170,7 +170,8 @@ var makeMove = function(position, direction){
 var checkClearPath = function(pos1, pos2, direction){
   if (direction == 'up'){
     var currentPos = {row: pos1.row - 1, col: pos1.col}
-    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+    if (!(currentPos.row !== pos2.row && currentPos.col !== pos2.col)) {
+      
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
       } else {
@@ -272,7 +273,7 @@ app.post('/test', function(req, res){
 
   res.json({
     final: 'hey'
-    
+
   })
 
 })
