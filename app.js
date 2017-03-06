@@ -63,16 +63,19 @@ if (!currentPlayer){
   var currentPlayer = 'red';
 }
 var transpose=function(arr,arrLen) {
-  var newArray = arr.slice();
+  var copy = []
+  for (let k = 0; k < arr.length; k++) {
+    copy.push(arr[k].slice());
+  }
   for (var i = 0; i < arrLen; i++) {
     for (var j = 0; j <i; j++) {
       //swap element[i,j] and element[j,i]
-      var temp = newArray[i][j];
-      newArray[i][j] = newArray[j][i];
-      newArray[j][i] = temp;
+      var temp = copy[i][j];
+      copy[i][j] = copy[j][i];
+      copy[j][i] = temp;
     }
   }
-  return newArray;
+  return copy;
 }
 var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
