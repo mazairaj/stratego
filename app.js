@@ -322,11 +322,11 @@ app.post('/stateupdate', function(req, res){
   // if (board[0][0] !== "" && board[7][7] !== "")
   //   var bd = req.body.reqBoard
   // board = transpose(board, 8);
-  console.log('BOARD:',board)
+  //console.log('BOARD:',board)
 var x = board.slice()
 
   var returnBoard = transpose(x, 8);//transpose(board, 8);
-  console.log('transposed board::',returnBoard)
+  //console.log('transposed board::',returnBoard)
   var response = {board: returnBoard, currPlayer: currentPlayer};
   res.json(response)
 });
@@ -337,11 +337,11 @@ var x = board.slice()
 
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
-  console.log('NEWBOARD B4 transpose', newBoard);
+  //console.log('NEWBOARD B4 transpose', newBoard);
   var thisTeam = req.body.team;
   var boardTranspose = transpose(newBoard, 8);
   // console.log('BOARDTRANSPOSE ',boardTranspose)
-  console.log('after transpose:',newBoard)
+  //console.log('after transpose:',newBoard)
   if (thisTeam === 'blue') {
     console.log('I AM TEAM ', thisTeam)
     board[0] = boardTranspose[0];
