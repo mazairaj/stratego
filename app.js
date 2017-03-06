@@ -92,40 +92,40 @@ var battle = function(position1, position2) {
   var defender = board[position2.row][position2.col];
   // console.log('attacker', attacker)
   // console.log('defender', defender)
-  if (defender.value === 'F') {
+  if (defender.piece === 'F') {
     isDefeated = true;
     var winner = (defender.team === 'red') ? 'blue':'red'
-    return attacker.value
+    return attacker.piece
   }
-  if (defender.value === 'B') {
-    if(parseInt(attacker.value) === 3) {
+  if (defender.piece === 'B') {
+    if(parseInt(attacker.piece) === 3) {
       board[position2.row][position2.col] = "";
       updatePos(position1, position2);
-      return attacker.value.toString()
+      return attacker.piece.toString()
     }else{
       board[position1.row][position1.col] = "";
       board[position2.row][position2.col] = "";
-      return attacker.value.toString()
+      return attacker.piece.toString()
     }
   }
-  if (attacker.value === 'S') {
+  if (attacker.piece === 'S') {
     board[position2.row][position2.col] =  "";
     updatePos(position1, position2);
-    return attacker.value.toString()
+    return attacker.piece.toString()
   }
-  if (defender.value === 'S') {
+  if (defender.piece === 'S') {
     // console.log('spy defender')
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
-    return attacker.value.toString()
+    return attacker.piece.toString()
   }
-  if (parseInt(attacker.value) > parseInt(defender.value)) {
+  if (parseInt(attacker.piece) > parseInt(defender.piece)) {
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
-    return attacker.value.toString()
+    return attacker.piece.toString()
   } else {
     board[position1.row][position1.col] = "";
-    return defender.value.toString()
+    return defender.piece.toString()
   }
 }
 var makeMove = function(position, direction){
