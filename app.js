@@ -62,6 +62,13 @@ if (!currentPlayer){
   console.log('in current Player')
   var currentPlayer = 'red';
 }
+var twoDCopy = function(arr, arrLen) {
+  var copy = []
+  for (let k = 0; k < arr.length; k++) {
+    copy.push(arr[k].slice());
+  }
+  return copy
+}
 var transpose=function(arr,arrLen) {
   var copy = []
   for (let k = 0; k < arr.length; k++) {
@@ -292,7 +299,8 @@ app.post('/makemove', function(req, res) {
     });
   };
   // console.log('legal move')
-  var newboard = makeMove(pos1,direction);
+  makeMove(pos1,direction);
+  var newboard = twoDCopy(board, 8);
   // console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
   var nextPlayerVal = nextPlayer();
