@@ -63,7 +63,7 @@ if (!currentPlayer){
   var currentPlayer = 'red';
 }
 var transpose=function(arr,arrLen) {
-  var newArray = [...arr];
+  var newArray = arr.slice();
   for (var i = 0; i < arrLen; i++) {
     for (var j = 0; j <i; j++) {
       //swap element[i,j] and element[j,i]
