@@ -62,7 +62,7 @@ if (!currentPlayer){
   console.log('in current Player')
   var currentPlayer = 'red';
 }
-function transpose(arr,arrLen) {
+var transpose=function(arr,arrLen) {
   var newArray = [...arr];
   for (var i = 0; i < arrLen; i++) {
     for (var j = 0; j <i; j++) {
