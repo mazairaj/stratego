@@ -227,11 +227,18 @@ app.post('/stateupdate', function(req, res){
   //   var bd = req.body.reqBoard
   // board = transpose(board, 8);
   console.log('BOARD:',board)
-  var returnBoard = transpose(board, 8);//transpose(board, 8);
+var x=board
+
+  var returnBoard = transpose(x, 8);//transpose(board, 8);
   console.log('transposed board::',returnBoard)
   var response = {board: returnBoard, currPlayer: currentPlayer};
+  var x=null
   res.json(response)
 });
+
+
+
+
 
 app.post('/setupboard',function(req,res) {
   newBoard = req.body.board;
