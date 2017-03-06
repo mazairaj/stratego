@@ -167,21 +167,102 @@ var makeMove = function(position, direction){
     }
   }
 }
-var checkValidMove=function(pos1,pos2) {
-  if (pos2.row-pos1.row === 1 && pos2.col - pos1.col === 0) {
-    return 'down'
-  }
-  if (pos2.row-pos1.row === -1 && pos2.col - pos1.col === 0) {
-    return 'up'
-  }
-  if (pos2.col-pos1.col === 1 && pos2.row - pos1.row === 0) {
-      return 'right'
+var checkClearPath = function(pos1, pos2, direction){
+  if (direction == 'up'){
+    var currentPos = {row: pos1.row - 1, col: pos1.col}
+    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+      if (board[currentPos.row][currentPos.col] === ""){
+        return checkClearPath(currentPos, pos2);
+      } else {
+        return false;
+      }
+    } else {
+      return true;
     }
-    if (pos2.col-pos1.col === -1 && pos2.row - pos1.row === 0) {
-      return 'left'
   }
-  return 'illegal move'
+  if (direction == 'down'){
+    var currentPos = {row: pos1.row + 1, col: pos1.col}
+    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+      if (board[currentPos.row][currentPos.col] === ""){
+        return checkClearPath(currentPos, pos2);
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
+  if (direction == 'left'){
+    var currentPos = {row: pos1.row, col: pos1.col - 1}
+    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+      if (board[currentPos.row][currentPos.col] === ""){
+        return checkClearPath(currentPos, pos2);
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
+  if (direction == 'right'){
+    var currentPos = {row: pos1.row, col: pos1.col + 1}
+    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+      if (board[currentPos.row][currentPos.col] === ""){
+        return checkClearPath(currentPos, pos2);
+      } else {
+        return false;
+      }
+    } else {
+      return true;
+    }
+  }
 }
+
+})
+var checkValidMove=function(pos1,pos2) {
+  if (board[pos1.row][pos1.col].piece !== '2') {
+    if (pos2.row-pos1.row === 1 && pos2.col - pos1.col === 0) {
+      return 'down'
+    }
+    if (pos2.row-pos1.row === -1 && pos2.col - pos1.col === 0) {
+      return 'up'
+    }
+    if (pos2.col-pos1.col === 1 && pos2.row - pos1.row === 0) {
+        return 'right'
+      }
+      if (pos2.col-pos1.col === -1 && pos2.row - pos1.row === 0) {
+        return 'left'
+    }
+    return 'illegal move'
+  } else {
+    if (pos2.row-pos1.row === > 0 && pos2.col - pos1.col === 0) {
+      var direction = 'down'
+      if (checkClearPath(pos1,pos2, direction){
+        return direction
+      }
+    }
+    if (pos2.row-pos1.row === -1 && pos2.col - pos1.col === 0) {
+      var direction = 'up'
+      if (checkClearPath(pos1,pos2, direction){
+        return direction
+      }
+    }
+    if (pos2.col-pos1.col === 1 && pos2.row - pos1.row === 0) {
+        var direction = 'right'
+        if (checkClearPath(pos1,pos2, direction){
+          return direction
+        }
+      }
+    if (pos2.col-pos1.col === -1 && pos2.row - pos1.row === 0) {
+        var direction = 'left'
+        if (checkClearPath(pos1,pos2, direction){
+          return direction
+        }
+    }
+    return 'illegal move'
+  }
+}
+
 app.get('/',function(req,res) {
   res.send('hello world')
 })
