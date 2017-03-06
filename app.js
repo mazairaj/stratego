@@ -290,6 +290,7 @@ app.post('/makemove', function(req, res) {
       currentPlayer: currentPlayer,
       move: [pos1]
     });
+    
   };
   // console.log('legal move')
   var newboard = makeMove(pos1,direction);
