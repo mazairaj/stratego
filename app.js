@@ -165,14 +165,14 @@ var makeMove = function(position, direction){
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row, col: position.col + 1})
     }
-    
+
   }
 }
 var checkClearPath = function(pos1, pos2, direction){
   if (direction == 'up'){
     var currentPos = {row: pos1.row - 1, col: pos1.col}
     if (!(currentPos.row !== pos2.row && currentPos.col !== pos2.col)) {
-
+      console.log('inside if statement')
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
       } else {
