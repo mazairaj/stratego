@@ -126,7 +126,7 @@ var battle = function(position1, position2) {
     // console.log('spy defender')
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
-    
+
     return attacker.piece.toString()
   }
   if (parseInt(attacker.piece) > parseInt(defender.piece)) {
@@ -173,7 +173,7 @@ var makeMove = function(position, direction){
 }
 var checkClearPath = function(pos1, pos2, direction){
   console.log('check path')
-  if (direction == 'up'){
+  if (direction === 'up'){
     var currentPos = {row: pos1.row - 1, col: pos1.col}
     if (!(currentPos.row === pos2.row && currentPos.col === pos2.col)) {
       console.log('inside if statement')
@@ -187,7 +187,7 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
 
-  if (direction == 'down'){
+  if (direction === 'down'){
     var currentPos = {row: pos1.row + 1, col: pos1.col}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
       if (board[currentPos.row][currentPos.col] === ""){
@@ -199,7 +199,7 @@ var checkClearPath = function(pos1, pos2, direction){
       return true;
     }
   }
-  if (direction == 'left'){
+  if (direction === 'left'){
     var currentPos = {row: pos1.row, col: pos1.col - 1}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
       if (board[currentPos.row][currentPos.col] === ""){
@@ -212,7 +212,7 @@ var checkClearPath = function(pos1, pos2, direction){
       return true;
     }
   }
-  if (direction == 'right'){
+  if (direction === 'right'){
     var currentPos = {row: pos1.row, col: pos1.col + 1}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
       console.log('JSON PARSE STRING WORKED')
