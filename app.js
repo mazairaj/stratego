@@ -199,10 +199,10 @@ var checkClearPath = function(pos1, pos2, direction){
   }
 
   if (direction === 'down'){
-    var currentPos = {row: pos1.row + 1, col: pos1.col}
+    pos1.row++;
     if (currentPos.row !== pos2.row) {
       if (board[currentPos.row][currentPos.col] === ""){
-        return checkClearPath(currentPos, pos2);
+        return checkClearPath(currentPos, pos2, direction);
       } else {
         return false;
       }
@@ -211,11 +211,11 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
   if (direction === 'left'){
-    var currentPos = {row: pos1.row, col: pos1.col - 1}
+    pos1.col--;
     if (currentPos.col !== pos2.col) {
       if (board[currentPos.row][currentPos.col] === ""){
         console.log('clearBoard')
-        return checkClearPath(currentPos, pos2);
+        return checkClearPath(currentPos, pos2, direction);
       } else {
         return false;
       }
@@ -224,10 +224,10 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
   if (direction === 'right'){
-    var currentPos = {row: pos1.row, col: pos1.col + 1}
+    pos1.col++;
     if (currentPos.col !== pos2.col) {
       if (board[currentPos.row][currentPos.col] === ""){
-        return checkClearPath(currentPos, pos2);
+        return checkClearPath(currentPos, pos2, direction);
       } else {
         return false;
       }
