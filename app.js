@@ -183,6 +183,7 @@ var checkClearPath = function(pos1, pos2, direction){
       return true;
     }
   }
+
   if (direction == 'down'){
     var currentPos = {row: pos1.row + 1, col: pos1.col}
     if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
@@ -288,8 +289,7 @@ app.get('/joingame', function(req, res){
     team = (numPlayers === 0 ? 'red' : 'blue')
     numPlayers++
     if (numPlayers === 2) {
-      numPlayers = 0;
-      //gameFull = true;
+      gameFull = true;
     }
   } else {
     team = 'Game is Full'
