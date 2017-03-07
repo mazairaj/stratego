@@ -236,7 +236,6 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
 }
-
 var checkValidMove=function(pos1,pos2) {
   if (board[pos1.row][pos1.col].piece !== '2') {
     if (pos2.row-pos1.row === 1 && pos2.col - pos1.col === 0) {
