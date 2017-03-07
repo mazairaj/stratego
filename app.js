@@ -414,6 +414,7 @@ app.post('/makemove', function(req, res) {
     ('dir = ', direction)
     copyBoard = transpose(copyBoard, 8)
     // console.log('COPY', copyBoard)
+    
     res.json({
       board: copyBoard,
       currentPlayer: currentPlayer,
