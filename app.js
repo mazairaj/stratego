@@ -95,6 +95,7 @@ var updatePos = function(position1, position2){
   board[position2.row][position2.col] = initialPiece;
   board[position1.row][position1.col] = "";
   return board;
+  
 }
 var battle = function(position1, position2) {
   var attacker = board[position1.row][position1.col];
