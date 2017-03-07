@@ -44,17 +44,18 @@ var spy = {value: 'S', team: 'red'}
 var att = {value: 6, team: 'blue'}
 var def = {value: 3, team: 'red'}
 var bomb = {value: 'B', team: 'blue'}
+var emptyBoard= [ ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+             ["", "","","","","","",""],
+]
 if (!board){
   console.log('in Set Board')
-  var board= [ ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-               ["", "","","","","","",""],
-  ]
+  var board = emptyBoard
 }
 
 
@@ -287,7 +288,8 @@ app.get('/joingame', function(req, res){
     team = (numPlayers === 0 ? 'red' : 'blue')
     numPlayers++
     if (numPlayers === 2) {
-      gameFull = true;
+      numPlayers = 0;
+      //gameFull = true;
     }
   } else {
     team = 'Game is Full'
