@@ -254,6 +254,7 @@ var checkValidMove=function(pos1,pos2) {
       console.log('step 1')
       var direction = 'up'
       if (checkClearPath(pos1,pos2, direction)){
+        console.log('returning', direction)
         return direction
       }
     }
