@@ -175,7 +175,7 @@ var checkClearPath = function(pos1, pos2, direction){
   console.log('check path')
   if (direction === 'up'){
     var currentPos = {row: pos1.row - 1, col: pos1.col}
-    if (!(currentPos.row === pos2.row && currentPos.col === pos2.col)) {
+    if (currentPos.row !== pos2.row) {
       console.log('inside if statement')
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
@@ -189,7 +189,7 @@ var checkClearPath = function(pos1, pos2, direction){
 
   if (direction === 'down'){
     var currentPos = {row: pos1.row + 1, col: pos1.col}
-    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+    if (currentPos.row !== pos2.row) {
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
       } else {
@@ -201,7 +201,7 @@ var checkClearPath = function(pos1, pos2, direction){
   }
   if (direction === 'left'){
     var currentPos = {row: pos1.row, col: pos1.col - 1}
-    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+    if (currentPos.col !== pos2.col) {
       if (board[currentPos.row][currentPos.col] === ""){
         console.log('clearBoard')
         return checkClearPath(currentPos, pos2);
@@ -214,7 +214,7 @@ var checkClearPath = function(pos1, pos2, direction){
   }
   if (direction === 'right'){
     var currentPos = {row: pos1.row, col: pos1.col + 1}
-    if (JSON.parse(JSON.stringify(currentPos)) !== JSON.parse(JSON.stringify(pos2))) {
+    if (currentPos.col !== pos2.col) {
       console.log('JSON PARSE STRING WORKED')
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
