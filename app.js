@@ -110,9 +110,8 @@ var battle = function(position1, position2) {
       updatePos(position1, position2);
       return attacker.piece.toString()
     }else{
-      board[position1.row][position1.col] = "";
       board[position2.row][position2.col] = "";
-      return attacker.piece.toString()
+      return defender.piece.toString()
     }
   }
   if (attacker.piece === 'S') {
