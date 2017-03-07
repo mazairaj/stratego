@@ -98,7 +98,7 @@ var updatePos = function(position1, position2){
   board[position1.row][position1.col] = "";
   console.log(board);
   return board;
-  
+
 }
 var battle = function(position1, position2) {
   var attacker = board[position1.row][position1.col];
@@ -202,7 +202,7 @@ var checkClearPath = function(pos1, pos2, direction){
   if (direction === 'down'){
     pos1.row++;
     if (pos1.row !== pos2.row) {
-      if (board[currentPos.row][currentPos.col] === ""){
+      if (board[pos1.row][pos1.col] === ""){
         return checkClearPath(currentPos, pos2, direction);
       } else {
         return false;
@@ -214,7 +214,7 @@ var checkClearPath = function(pos1, pos2, direction){
   if (direction === 'left'){
     pos1.col--;
     if (pos1.col !== pos2.col) {
-      if (board[currentPos.row][currentPos.col] === ""){
+      if (board[pos1.row][pos1.col] === ""){
         console.log('clearBoard')
         return checkClearPath(currentPos, pos2, direction);
       } else {
@@ -227,7 +227,7 @@ var checkClearPath = function(pos1, pos2, direction){
   if (direction === 'right'){
     pos1.col++;
     if (pos1.col !== pos2.col) {
-      if (board[currentPos.row][currentPos.col] === ""){
+      if (board[pos1.row][pos1.col] === ""){
         return checkClearPath(currentPos, pos2, direction);
       } else {
         return false;
