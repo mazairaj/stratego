@@ -160,21 +160,21 @@ var makeMove = function(position, direction, position2){
       return battle({row: position.row, col: position.col}, {row: position.row - 1, col: position.col})
     }
   }  if (direction === 'down') {
-    // console.log('down')
+    console.log('down')
     if (board[position.row + 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row + 1, col: position.col});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row + 1, col: position.col})
     }
   }  if (direction === 'left') {
-    // console.log('left')
+    console.log('left')
     if(board[position.row][position.col-1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col - 1});
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row , col: position.col - 1})
     }
   } if (direction === 'right') {
-    // console.log('right')
+    console.log('right')
     if(board[position.row][position.col+1] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row, col: position.col + 1});
     } else{
@@ -216,6 +216,7 @@ var checkClearPath = function(pos1, pos2, direction){
       return true;
     }
   }
+
   if (direction === 'left'){
     console.log('step 3')
     pos1.col--;
@@ -261,6 +262,7 @@ var checkValidMove=function(pos1,pos2) {
       if (pos2.col-pos1.col === -1 && pos2.row - pos1.row === 0) {
         return 'left'
     }
+
     return 'illegal move'
   } else {
     ogPos = {row: pos1.row, col: pos1.col}
@@ -287,7 +289,7 @@ var checkValidMove=function(pos1,pos2) {
         if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
-        
+
       }
     if ((pos2.col-pos1.col < 0) && (pos2.row - pos1.row === 0)) {
         var direction = 'left'
@@ -297,6 +299,7 @@ var checkValidMove=function(pos1,pos2) {
         }
     }
   }
+  console.log('iligal move');
   return 'illegal move'
 }
 
@@ -392,7 +395,7 @@ app.post('/setupboard',function(req,res) {
   // console.log('Post setupboard ********', board)
   var newboardTranspose = (transpose(flipBoard, 8));
 
-  console.log('sending transpose::',newboardTranspose)
+  // console.log('sending transpose::',newboardTranspose)
 
   res.json({board: newboardTranspose});
 })
