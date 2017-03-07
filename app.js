@@ -188,7 +188,7 @@ var checkClearPath = function(pos1, pos2, direction){
     pos1.row--;
     if (pos1.row !== pos2.row) {
       console.log('inside if statement')
-      if (board[pos1.row][pos2.col] === ""){
+      if (board[pos1.row][pos1.col] === ""){
         return checkClearPath(pos1 , pos2, direction);
       } else {
         return false;
@@ -200,27 +200,32 @@ var checkClearPath = function(pos1, pos2, direction){
   }
 
   if (direction === 'down'){
+    console.log('step 3')
     pos1.row++;
     if (pos1.row !== pos2.row) {
+      console.log('inside if statement')
       if (board[pos1.row][pos1.col] === ""){
-        return checkClearPath(currentPos, pos2, direction);
+        return checkClearPath(pos1 , pos2, direction);
       } else {
         return false;
       }
     } else {
+      console.log('returning true')
       return true;
     }
   }
   if (direction === 'left'){
+    console.log('step 3')
     pos1.col--;
     if (pos1.col !== pos2.col) {
+      console.log('inside if statement')
       if (board[pos1.row][pos1.col] === ""){
-        console.log('clearBoard')
-        return checkClearPath(currentPos, pos2, direction);
+        return checkClearPath(pos1 , pos2, direction);
       } else {
         return false;
       }
     } else {
+      console.log('returning true')
       return true;
     }
   }
