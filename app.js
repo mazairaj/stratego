@@ -421,23 +421,24 @@ app.post('/makemove', function(req, res) {
       currentPlayer: currentPlayer,
       move: [pos1]
     });
-  };
+  } else {
 
-  // console.log('legal move')
-  makeMove(pos1,direction,pos2);
+    // console.log('legal move')
+    makeMove(pos1,direction,pos2);
 
-  var newboard = twoDCopy(board, 8);
-  // console.log("New BOARD", newboard)
-  var newboard2 = transpose(newboard, 8)
-  var nextPlayerVal = nextPlayer();
-  currentPlayer = nextPlayerVal;
-  // console.log('MaDE MOVE', nextPlayerVal);
-  res.json({
-    board: newboard2,
-    currentPlayer: nextPlayerVal,
-    move: [],
-    gameWon: isDefeated
-  });
+    var newboard = twoDCopy(board, 8);
+    // console.log("New BOARD", newboard)
+    var newboard2 = transpose(newboard, 8)
+    var nextPlayerVal = nextPlayer();
+    currentPlayer = nextPlayerVal;
+    // console.log('MaDE MOVE', nextPlayerVal);
+    res.json({
+      board: newboard2,
+      currentPlayer: nextPlayerVal,
+      move: [],
+      gameWon: isDefeated
+    });
+  }
 })
 
 app.listen(process.env.PORT||3000)
