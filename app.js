@@ -267,7 +267,6 @@ var checkValidMove=function(pos1,pos2) {
         console.log('returning', direction)
         return direction
       }
-      
     }
     if (pos2.col-pos1.col > 0 && pos2.row - pos1.row === 0) {
         var direction = 'right'
