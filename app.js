@@ -264,7 +264,7 @@ var checkValidMove=function(pos1,pos2) {
     return 'illegal move'
   } else {
     ogPos = {row: pos1.row, col: pos1.col}
-    if (pos2.row-pos1.row > 0 && pos2.col - pos1.col === 0) {
+    if ((pos2.row-pos1.row > 0) && (pos2.col - pos1.col === 0)) {
       var direction = 'down'
       console.log(direction)
       if (checkClearPath(ogPos,pos2, direction)){
@@ -272,7 +272,7 @@ var checkValidMove=function(pos1,pos2) {
       }
 
     }
-    if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
+    if ((pos2.row-pos1.row < 0) && (pos2.col - pos1.col === 0)) {
       console.log('step 1')
       console.log(direction)
       var direction = 'up'
@@ -281,21 +281,21 @@ var checkValidMove=function(pos1,pos2) {
         return direction
       }
     }
-    if (pos2.col-pos1.col > 0 && pos2.row - pos1.row === 0) {
+    if ((pos2.col-pos1.col > 0) && (pos2.row - pos1.row === 0)) {
         var direction = 'right'
         console.log(direction)
         if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
+        
       }
-    if (pos2.col-pos1.col < 0 && pos2.row - pos1.row === 0) {
+    if ((pos2.col-pos1.col < 0) && (pos2.row - pos1.row === 0)) {
         var direction = 'left'
         console.log(direction)
         if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
     }
-    
   }
   return 'illegal move'
 }
