@@ -91,11 +91,14 @@ var nextPlayer = function(){
 }
 var updatePos = function(position1, position2){
   console.log('update')
+  console.log('1: ',position1)
+  console.log('2: ', position2)
   initialPiece = board[position1.row][position1.col];
   board[position2.row][position2.col] = initialPiece;
   board[position1.row][position1.col] = "";
+  console.log(board);
   return board;
-  
+
 }
 var battle = function(position1, position2) {
   var attacker = board[position1.row][position1.col];
