@@ -249,7 +249,7 @@ var checkValidMove=function(pos1,pos2) {
         return direction
       }
     }
-    if (pos2.row-pos1.row > 0 && pos2.col - pos1.col === 0) {
+    if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
       var direction = 'up'
       if (checkClearPath(pos1,pos2, direction)){
         return direction
@@ -261,7 +261,7 @@ var checkValidMove=function(pos1,pos2) {
           return direction
         }
       }
-    if (pos2.col-pos1.col > 0 && pos2.row - pos1.row === 0) {
+    if (pos2.col-pos1.col < 0 && pos2.row - pos1.row === 0) {
         var direction = 'left'
         if (checkClearPath(pos1,pos2, direction)){
           return direction
