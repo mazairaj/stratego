@@ -247,29 +247,30 @@ var checkValidMove=function(pos1,pos2) {
     }
     return 'illegal move'
   } else {
+    ogPos = {row: pos1.row, col: pos1.col}
     if (pos2.row-pos1.row > 0 && pos2.col - pos1.col === 0) {
       var direction = 'down'
-      if (checkClearPath(pos1,pos2, direction)){
+      if (checkClearPath(ogPos,pos2, direction)){
         return direction
       }
     }
     if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
       console.log('step 1')
       var direction = 'up'
-      if (checkClearPath(pos1,pos2, direction)){
+      if (checkClearPath(ogPos,pos2, direction)){
         console.log('returning', direction)
         return direction
       }
     }
     if (pos2.col-pos1.col > 0 && pos2.row - pos1.row === 0) {
         var direction = 'right'
-        if (checkClearPath(pos1,pos2, direction)){
+        if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
       }
     if (pos2.col-pos1.col < 0 && pos2.row - pos1.row === 0) {
         var direction = 'left'
-        if (checkClearPath(pos1,pos2, direction)){
+        if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
     }
