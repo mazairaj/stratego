@@ -141,6 +141,7 @@ var battle = function(position1, position2) {
     board[position1.row][position1.col] = "";
     return defender.piece.toString()
   }
+  
 }
 var makeMove = function(position, direction, position2){
 // console.log('direction:',direction)
@@ -230,14 +231,17 @@ var checkClearPath = function(pos1, pos2, direction){
     }
   }
   if (direction === 'right'){
+    console.log('step 3')
     pos1.col++;
     if (pos1.col !== pos2.col) {
+      console.log('inside if statement')
       if (board[pos1.row][pos1.col] === ""){
-        return checkClearPath(currentPos, pos2, direction);
+        return checkClearPath(pos1 , pos2, direction);
       } else {
         return false;
       }
     } else {
+      console.log('returning true')
       return true;
     }
   }
@@ -261,12 +265,14 @@ var checkValidMove=function(pos1,pos2) {
     ogPos = {row: pos1.row, col: pos1.col}
     if (pos2.row-pos1.row > 0 && pos2.col - pos1.col === 0) {
       var direction = 'down'
+      console.log(direction)
       if (checkClearPath(ogPos,pos2, direction)){
         return direction
       }
     }
     if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
       console.log('step 1')
+      console.log(direction)
       var direction = 'up'
       if (checkClearPath(ogPos,pos2, direction)){
         console.log('returning', direction)
@@ -275,12 +281,14 @@ var checkValidMove=function(pos1,pos2) {
     }
     if (pos2.col-pos1.col > 0 && pos2.row - pos1.row === 0) {
         var direction = 'right'
+        console.log(direction)
         if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
       }
     if (pos2.col-pos1.col < 0 && pos2.row - pos1.row === 0) {
         var direction = 'left'
+        console.log(direction)
         if (checkClearPath(ogPos,pos2, direction)){
           return direction
         }
