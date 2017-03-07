@@ -399,7 +399,6 @@ app.post('/setupboard',function(req,res) {
 
   res.json({board: newboardTranspose});
 })
-
 app.post('/makemove', function(req, res) {
   // console.log('in');
   // console.log('BOARD BEFORE MOVE IS MADE:',board)
