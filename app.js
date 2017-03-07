@@ -103,7 +103,7 @@ var battle = function(position1, position2) {
   // console.log('defender', defender)
   if (defender.piece === 'F') {
     isDefeated = true;
-    
+
     var winner = (defender.team === 'red') ? 'blue':'red'
     return attacker.piece
   }
@@ -126,6 +126,7 @@ var battle = function(position1, position2) {
     // console.log('spy defender')
     board[position2.row][position2.col] = "";
     updatePos(position1, position2);
+    
     return attacker.piece.toString()
   }
   if (parseInt(attacker.piece) > parseInt(defender.piece)) {
