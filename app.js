@@ -90,7 +90,7 @@ var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
 }
 var updatePos = function(position1, position2){
-  // console.log('update')
+  console.log('update')
   initialPiece = board[position1.row][position1.col];
   board[position2.row][position2.col] = initialPiece;
   board[position1.row][position1.col] = "";
@@ -141,7 +141,7 @@ var battle = function(position1, position2) {
 var makeMove = function(position, direction){
 // console.log('direction:',direction)
   if (direction === 'up') {
-    // console.log('up')
+    console.log('up')
     if (board[position.row - 1][position.col] === "") {
       return updatePos({row: position.row, col: position.col},{row: position.row - 1, col: position.col});
     } else{
@@ -394,7 +394,7 @@ app.post('/makemove', function(req, res) {
   };
   // console.log('legal move')
   makeMove(pos1,direction);
-  
+
   var newboard = twoDCopy(board, 8);
   // console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
