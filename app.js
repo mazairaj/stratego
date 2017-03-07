@@ -141,7 +141,7 @@ var battle = function(position1, position2) {
     board[position1.row][position1.col] = "";
     return defender.piece.toString()
   }
-  
+
 }
 var makeMove = function(position, direction, position2){
 // console.log('direction:',direction)
@@ -269,6 +269,7 @@ var checkValidMove=function(pos1,pos2) {
       if (checkClearPath(ogPos,pos2, direction)){
         return direction
       }
+      
     }
     if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
       console.log('step 1')
