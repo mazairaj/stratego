@@ -103,6 +103,7 @@ var battle = function(position1, position2) {
   // console.log('defender', defender)
   if (defender.piece === 'F') {
     isDefeated = true;
+    
     var winner = (defender.team === 'red') ? 'blue':'red'
     return attacker.piece
   }
