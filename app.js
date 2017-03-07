@@ -90,13 +90,13 @@ var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
 }
 var updatePos = function(position1, position2){
-  console.log('update')
+  // console.log('update')
   console.log('1: ',position1)
   console.log('2: ', position2)
   initialPiece = board[position1.row][position1.col];
   board[position2.row][position2.col] = initialPiece;
   board[position1.row][position1.col] = "";
-  console.log(board);
+  // console.log(board);
   return board;
 
 }
@@ -269,7 +269,7 @@ var checkValidMove=function(pos1,pos2) {
       if (checkClearPath(ogPos,pos2, direction)){
         return direction
       }
-      
+
     }
     if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
       console.log('step 1')
