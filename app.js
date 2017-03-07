@@ -413,6 +413,7 @@ app.post('/makemove', function(req, res) {
   var pos1 = moves[0];
   var direction = checkValidMove(pos1,pos2);
   if(direction==='illegal move') {
+    ('dir = ', direction)
     copyBoard = transpose(copyBoard, 8)
     // console.log('COPY', copyBoard)
     res.json({
