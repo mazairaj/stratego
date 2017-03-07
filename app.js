@@ -82,7 +82,6 @@ var transpose=function(arr,arrLen) {
       copy[j][i] = temp;
     }
   }
-  
   return copy;
 }
 var nextPlayer = function(){
