@@ -141,8 +141,14 @@ var battle = function(position1, position2) {
     return defender.piece.toString()
   }
 }
-var makeMove = function(position, direction){
+var makeMove = function(position, direction, position2){
 // console.log('direction:',direction)
+  if (board[position.row][position.col].piece === '2') {
+    if (board[position2.row][position2.col] === ""){
+      updatePos(position, position2)
+    }
+    battle(position, position2)
+  }
   if (direction === 'up') {
     console.log('up')
     if (board[position.row - 1][position.col] === "") {
@@ -397,7 +403,7 @@ app.post('/makemove', function(req, res) {
     });
   };
   // console.log('legal move')
-  makeMove(pos1,direction);
+  makeMove(pos1,direction,pos2);
 
   var newboard = twoDCopy(board, 8);
   // console.log("New BOARD", newboard)
