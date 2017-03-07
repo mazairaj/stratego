@@ -174,17 +174,17 @@ var makeMove = function(position, direction){
 var checkClearPath = function(pos1, pos2, direction){
   console.log('step 2')
   if (direction === 'up'){
-    ('step 3')
-    var currentPos = {row: pos1.row - 1, col: pos1.col}
-    if (currentPos.row !== pos2.row) {
+    console.log('step 3')
+    pos1.row--;
+    if (pos1.row !== pos2.row) {
       console.log('inside if statement')
-      if (board[currentPos.row][currentPos.col] === ""){
-        return checkClearPath(currentPos, pos2);
+      if (board[pos1.row][pos2.col] === ""){
+        return checkClearPath(pos1 , pos2);
       } else {
         return false;
       }
     } else {
-      ('returning true')
+      console.log('returning true')
       return true;
     }
   }
