@@ -116,7 +116,7 @@ var battle = function(position1, position2) {
       updatePos(position1, position2);
       return attacker.piece.toString()
     }else{
-      board[position2.row][position2.col] = "";
+      board[position1.row][position1.col] = "";
       return defender.piece.toString()
     }
   }
@@ -200,7 +200,7 @@ var checkClearPath = function(pos1, pos2, direction){
 
   if (direction === 'down'){
     pos1.row++;
-    if (currentPos.row !== pos2.row) {
+    if (pos1.row !== pos2.row) {
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2, direction);
       } else {
@@ -212,7 +212,7 @@ var checkClearPath = function(pos1, pos2, direction){
   }
   if (direction === 'left'){
     pos1.col--;
-    if (currentPos.col !== pos2.col) {
+    if (pos1.col !== pos2.col) {
       if (board[currentPos.row][currentPos.col] === ""){
         console.log('clearBoard')
         return checkClearPath(currentPos, pos2, direction);
@@ -225,7 +225,7 @@ var checkClearPath = function(pos1, pos2, direction){
   }
   if (direction === 'right'){
     pos1.col++;
-    if (currentPos.col !== pos2.col) {
+    if (pos1.col !== pos2.col) {
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2, direction);
       } else {
@@ -402,7 +402,7 @@ app.post('/makemove', function(req, res) {
       move: [pos1]
     });
   };
-  
+
   // console.log('legal move')
   makeMove(pos1,direction,pos2);
 
@@ -415,7 +415,8 @@ app.post('/makemove', function(req, res) {
   res.json({
     board: newboard2,
     currentPlayer: nextPlayerVal,
-    move: []
+    move: [],
+    gameWon: isDefeated
   });
 })
 
