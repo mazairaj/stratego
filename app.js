@@ -38,6 +38,7 @@ if (!gameFull){
   var gameFull = false;
 }
 if (!numPlayers) {
+  
   var numPlayers = 0
 }
 var spy = {value: 'S', team: 'red'}
