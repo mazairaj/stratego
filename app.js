@@ -90,6 +90,7 @@ var nextPlayer = function(){
   return (currentPlayer === 'red') ? 'blue' : 'red'
 }
 var updatePos = function(position1, position2){
+  
   // console.log('update')
   console.log('1: ',position1)
   console.log('2: ', position2)
