@@ -82,6 +82,7 @@ var transpose=function(arr,arrLen) {
       copy[j][i] = temp;
     }
   }
+  
   return copy;
 }
 var nextPlayer = function(){
@@ -165,7 +166,7 @@ var makeMove = function(position, direction){
     } else{
       return battle({row: position.row, col: position.col}, {row: position.row, col: position.col + 1})
     }
-    
+
   }
 }
 var checkClearPath = function(pos1, pos2, direction){
