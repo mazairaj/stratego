@@ -394,6 +394,7 @@ app.post('/makemove', function(req, res) {
   };
   // console.log('legal move')
   makeMove(pos1,direction);
+  
   var newboard = twoDCopy(board, 8);
   // console.log("New BOARD", newboard)
   var newboard2 = transpose(newboard, 8)
