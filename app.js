@@ -172,8 +172,9 @@ var makeMove = function(position, direction){
   }
 }
 var checkClearPath = function(pos1, pos2, direction){
-  console.log('check path')
+  console.log('step 2')
   if (direction === 'up'){
+    ('step 3')
     var currentPos = {row: pos1.row - 1, col: pos1.col}
     if (currentPos.row !== pos2.row) {
       console.log('inside if statement')
@@ -183,6 +184,7 @@ var checkClearPath = function(pos1, pos2, direction){
         return false;
       }
     } else {
+      ('returning true')
       return true;
     }
   }
@@ -215,7 +217,6 @@ var checkClearPath = function(pos1, pos2, direction){
   if (direction === 'right'){
     var currentPos = {row: pos1.row, col: pos1.col + 1}
     if (currentPos.col !== pos2.col) {
-      console.log('JSON PARSE STRING WORKED')
       if (board[currentPos.row][currentPos.col] === ""){
         return checkClearPath(currentPos, pos2);
       } else {
@@ -250,6 +251,7 @@ var checkValidMove=function(pos1,pos2) {
       }
     }
     if (pos2.row-pos1.row < 0 && pos2.col - pos1.col === 0) {
+      console.log('step 1')
       var direction = 'up'
       if (checkClearPath(pos1,pos2, direction)){
         return direction
@@ -267,8 +269,8 @@ var checkValidMove=function(pos1,pos2) {
           return direction
         }
     }
-    return 'illegal move'
   }
+  return 'illegal move'
 }
 
 app.get('/',function(req,res) {
