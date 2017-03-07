@@ -179,7 +179,7 @@ var checkClearPath = function(pos1, pos2, direction){
     if (pos1.row !== pos2.row) {
       console.log('inside if statement')
       if (board[pos1.row][pos2.col] === ""){
-        return checkClearPath(pos1 , pos2);
+        return checkClearPath(pos1 , pos2, direction);
       } else {
         return false;
       }
