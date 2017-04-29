@@ -25,3 +25,5 @@ making direct strikes on the flag or for scouting out your opponents pieces. \n
 Rank 3: Will defuse a bomb. The only piece that will gain control of a square occupied by a bomb. \n
 \n
 ![](./images/mainmenu.png)
+![](./images/gameSetup.png)
+![](./images/gamePlay.png)
